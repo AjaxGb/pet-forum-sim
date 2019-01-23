@@ -6,6 +6,34 @@ export default class ForumEngine {
 		this._threadContainer = threadContainer;
 		
 		this._threads = [];
+		
+		this.tick = this.tick.bind(this);
+		this._intervalID = null;
+	}
+	
+	startSim() {
+		if (this._intervalID === null) {
+			// Run at 20 tps
+			this._intervalID = setInterval(this.tick, 1000 / 20);
+		}
+	}
+	
+	stopSim() {
+		if (this._intervalID !== null) {
+			clearInterval(this._intervalID);
+			this._intervalID = null;
+		}
+	}
+	
+	tick() {
+		// Users can enter or leave threads
+		// Users can make "posts" in threads
+		// Users can make threads
+		// Users can choose to leave forum
+		// New users can join
+		// Thread order updates
+		
+		// Moderator users can also take actions
 	}
 	
 	createThread(title, author) {
