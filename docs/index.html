@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inflammable</title>
+	<link rel="stylesheet" href="index.css">
+	
+	<script type="module">
+		import { ThreadHandler } from './js/Thread.js';
+		import User from './js/User.js';
+		
+		const threadHandler = new ThreadHandler(
+			document.getElementById('thread-template'),
+			document.getElementById('threads-container'),
+		);
+		
+		threadHandler.create("Hi i'm new",
+			new User('jjFrankz16'));
+		threadHandler.create('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+			new User('A'));
+		threadHandler.create('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+			new User('xxXXMurderDemonXXxx'));
+	</script>
+</head>
+<body>
+	<section id="threads-container">
+		<header class="thread-header">
+			<div>Bars</div>
+			<div>Topic</div>
+			<div>Author</div>
+			<div>Posts</div>
+		</header>
+	</section>
+	<template id="thread-template">
+		<article id="root" class="thread">
+			<div class="thread-bars">
+				<progress id="flame-bar" class="thread-bar flame-bar"></progress>
+				<progress id="rad-bar" class="thread-bar rad-bar"></progress>
+				<progress id="elegant-bar" class="thread-bar elegant-bar"></progress>
+			</div>
+			<main>
+				<h1 id="title" class="thread-title">ERROR</h1>
+				<ul class="thread-actions">
+					<li>Lock</li>
+					<li>Hide</li>
+					<li>Pin</li>
+				</ul>
+			</main>
+			<div class="thread-author">
+				<a id="author">ERROR</a>
+			</div>
+			<div id="post-count" class="thread-post-count">ERROR</div>
+		</article>
+	</template>
+</body>
+</html>

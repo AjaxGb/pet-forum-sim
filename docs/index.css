@@ -1,0 +1,79 @@
+
+html, body {
+	height: 100%;
+	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", sans-serif;
+	font-size: 16px;
+	background: #FAFAFB;
+	box-sizing: border-box;
+}
+
+#threads-container {
+	display: grid;
+	width: 100%;
+	max-width: 1000px;
+}
+
+#threads-container > .thread,
+#threads-container > .thread-header {
+	display: grid;
+	grid-template-columns: 100px 1fr 160px 80px;
+	background-color: #ECEDEE;
+}
+
+#threads-container > .thread:nth-child(odd) {
+	background-color: #F2F2F3;
+}
+
+.thread-header > *,
+.thread > * {
+	border-left: 1px solid #D7D8DA;
+	border-bottom: 1px solid #D7D8DA;
+	padding: 8px 10px;
+	overflow: hidden;
+	word-break: break-word;
+}
+
+.thread-header > * {
+	border-top: 1px solid #D7D8DA;
+	font-style: italic;
+	font-size: 15px;
+	color: #737373;
+}
+
+.thread-header > *:last-child,
+.thread > *:last-child {
+	border-right: 1px solid #D7D8DA;
+}
+
+.thread-bars {
+	display: grid;
+	grid-gap: 5px;
+	align-content: start;
+}
+
+.thread-bar {
+	width: 100%;
+	height: 12px;
+}
+
+.thread h1 {
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+.thread-actions {
+	display: block;
+	width: 100%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.thread-actions > * {
+	display: inline-block;
+}
+
+.thread-actions > *::before {
+	content: ">";
+	margin-right: 5px;
+}
