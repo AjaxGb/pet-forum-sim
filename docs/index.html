@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Inflammable</title>
+	<title>WeLikePets Forum</title>
 	<link rel="stylesheet" href="index.css">
 	
 	<script type="module">
-		import { ThreadHandler } from './js/Thread.js';
+		import ForumEngine from './js/ForumEngine.js';
 		import User from './js/User.js';
 		
-		const threadHandler = new ThreadHandler(
+		const forumEngine = new ForumEngine(
 			document.getElementById('thread-template'),
 			document.getElementById('threads-container'),
 		);
 		
-		threadHandler.create("Hi i'm new",
+		// Expose for debugging
+		window.forumEngine = forumEngine;
+		
+		forumEngine.createThread("Hi i'm new",
 			new User('jjFrankz16'));
-		threadHandler.create('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+		forumEngine.createThread('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
 			new User('A'));
-		threadHandler.create('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+		forumEngine.createThread('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
 			new User('xxXXMurderDemonXXxx'));
 	</script>
 </head>
