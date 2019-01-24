@@ -1,10 +1,12 @@
+* {
+	box-sizing: border-box;
+}
 
 html, body {
 	height: 100%;
 	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", sans-serif;
 	font-size: 16px;
 	background: #FAFAFB;
-	box-sizing: border-box;
 }
 
 #threads-container {
@@ -16,8 +18,12 @@ html, body {
 #threads-container > .thread,
 #threads-container > .thread-header {
 	display: grid;
-	grid-template-columns: 100px 1fr 160px 80px;
+	grid-template-columns: 120px 1fr 160px 80px;
 	background-color: #ECEDEE;
+}
+
+#threads-container > .thread {
+	min-height: 64px;
 }
 
 #threads-container > .thread:nth-child(odd) {
@@ -30,7 +36,7 @@ html, body {
 	border-bottom: 1px solid #D7D8DA;
 	padding: 8px 10px;
 	overflow: hidden;
-	word-break: break-word;
+	word-wrap: break-word;
 }
 
 .thread-header > * {
@@ -47,13 +53,87 @@ html, body {
 
 .thread-bars {
 	display: grid;
-	grid-gap: 5px;
+	grid-gap: 10px;
 	align-content: start;
+}
+
+.thread-bar-container {
+	width: 100%;
+	height: 20px;
+	border: 1px solid #BCBCBC;
 }
 
 .thread-bar {
 	width: 100%;
-	height: 12px;
+	height: 100%;
+	border: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.thread-bar,
+.thread-bar::-webkit-progress-bar {
+	background: #e6e6e6;
+}
+
+/* Define these separately to work around a Chrome bug */
+.thread-bar::-webkit-progress-value {
+	background: currentcolor;
+}
+.thread-bar::-moz-progress-bar {
+	background: currentcolor;
+}
+
+.rad-bar-container,
+.elegant-bar-container {
+	grid-row: 2;
+	grid-column: 1 / -1;
+}
+
+.elegant-bar-container {
+	direction: rtl;
+}
+
+.elegant-bar,
+.elegant-bar::-webkit-progress-bar {
+	background: transparent;
+}
+
+.thread-bar-container {
+	position: relative;
+}
+
+.thread-bar-container::before {
+	content: "";
+	z-index: 1;
+	display: block;
+	position: absolute;
+	margin: 2px;
+	height: 14px;
+	width: 14px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.flame-bar {
+	color: red;
+}
+.flame-bar-container::before {
+	background-image: url("img/flame.svg");
+}
+.rad-bar {
+	color: orange;
+}
+.rad-bar-container::before {
+	background-image: url("img/cap.svg");
+}
+.elegant-bar {
+	color: blue;
+}
+.elegant-bar-container::before {
+	background-image: url("img/top-hat.svg");
 }
 
 .thread h1 {

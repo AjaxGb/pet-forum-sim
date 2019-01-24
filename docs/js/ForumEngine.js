@@ -1,12 +1,14 @@
 import ForumThread from './ForumThread.js';
 
 export default class ForumEngine {
-	constructor(threadTemplate, threadContainer) {
+	constructor(maxThreads, threadTemplate, threadContainer) {
 		this._threadTemplate = threadTemplate;
 		this._threadContainer = threadContainer;
 		
 		this._threads = [];
+		this.maxThreads = maxThreads;
 		
+		this.currentTick = 0;
 		this.tick = this.tick.bind(this);
 		this._intervalID = null;
 	}
@@ -26,22 +28,38 @@ export default class ForumEngine {
 	}
 	
 	tick() {
+		this.currentTick++;
+		
 		// Users can enter or leave threads
 		// Users can make "posts" in threads
 		// Users can make threads
 		// Users can choose to leave forum
 		// New users can join
-		// Thread order updates
 		
 		// Moderator users can also take actions
+		
+		this.updateThreadPositions();
 	}
 	
-	createThread(title, author) {
+	createThread(title, author, leaning, flame) {
 		const thread = new ForumThread(
-			this, this._threadTemplate, title, author);
+			this, this._threadTemplate,
+			title, author, leaning, flame);
 		this._threads.push(thread);
 		this._threadContainer.append(thread.elRoot);
 		return thread;
+	}
+	
+	static compareThreads(a, b) {
+		const heatA = a.calculateHeat();
+		const heatB = b.calculateHeat();
+		// TODO: if heats are equal, use previous index
+		return heatA - heatB;
+	}
+	
+	updateThreadPositions() {
+		this._threads.sort(ForumEngine.compareThreads);
+		// TODO: drop old threads, update thread positions, etc.
 	}
 	
 	*iterThreads() {
