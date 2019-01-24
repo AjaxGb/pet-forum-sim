@@ -36,7 +36,7 @@ export default class ForumThread {
 	}
 	
 	addPost(user, leaning=0, flame=0, tick=this._forum.currentTick) {
-		let length = this.recentPosts.push({
+		let length = this.recentPosts.unshift({
 			user: user,
 			leaning: Math.max(-1, Math.min(1, leaning)),
 			flame: Math.max(0, Math.min(1, flame)),
@@ -45,8 +45,10 @@ export default class ForumThread {
 		
 		this.postCount++;
 		
+		// Apparently this is the most efficient way to truncate
+		// an array? Ah, JavaScript.
 		while (length-- > this.maxRecentPosts) {
-			this.recentPosts.shift();
+			this.recentPosts.pop();
 		}
 		
 		this.updateValues();
@@ -56,27 +58,36 @@ export default class ForumThread {
 		let flame = 0;
 		let rad = 0;
 		let elegant = 0;
+		let totalWeight = 0;
 		
-		for (let post of this.recentPosts) {
-			flame += post.flame;
+		const length = this.recentPosts.length;
+		
+		for (let i = 0; i < length; i++) {
+			const post = this.recentPosts[i];
+			
+			// More recent posts have more effect
+			const weight = 1 - (i / length)**4;
+			
+			totalWeight += weight;
+			
+			flame += post.flame * weight;
 			
 			if (post.leaning < 0) {
-				rad -= post.leaning;
+				rad -= post.leaning * weight;
 			} else {
-				elegant += post.leaning;
+				elegant += post.leaning * weight;
 			}
 		}
 		
 		// Threads that are just beginning won't be
 		// able to completely max out their bars right
 		// out of the gate.
-		const count = Math.max(
-			this.minPostsForFullStrength,
-			this.recentPosts.length);
+		const modifier = Math.min(1,
+			length / this.minPostsForFullStrength);
 		
-		this.flameAmount = flame / count;
-		this.radAmount = rad / count;
-		this.elegantAmount = elegant / count;
+		this.flameAmount = flame / totalWeight * modifier;
+		this.radAmount = rad / totalWeight * modifier;
+		this.elegantAmount = elegant / totalWeight * modifier;
 	}
 	
 	calculateHeat() {
