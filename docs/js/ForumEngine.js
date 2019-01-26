@@ -11,8 +11,6 @@ export default class ForumEngine {
 		
 		this.currentTick = 0;
 		this.tick = this.tick.bind(this);
-		this.stopSim = this.stopSim.bind(this);
-		this.createThread = this.createThread.bind(this);
 		this._intervalID = null;
 	}
 	
