@@ -1,0 +1,73 @@
+{
+	"__format":
+	{
+		"name" : "name of user",
+		"leaning" : "-1:fancy < - - - > 0:neutral < - - - > 1:traditional",
+		"aggression" : "-1:friendly < - - - > 0:neutral < - - - > 1:aggresive",
+		"partisanship" : "-1:non-partisan < - - - > 0:average < - - - > 1:partisan"
+	},
+	"users":
+	[
+		{
+			"name" : "petLovr3",
+			"leaning" : 0.0,
+			"aggression" : -1.0,
+			"partisanship" : -1.0
+		},
+		{
+			"name" : "DonBonBon",
+			"leaning" : 0.3,
+			"aggression" : 0.8,
+			"partisanship" : -0.3
+		},
+		{
+			"name" : "xXBigDawgsXx",
+			"leaning" : -0.1,
+			"aggression" : -0.3,
+			"partisanship" : 0.3
+		},
+		{
+			"name" : "petlor",
+			"leaning" : -0.9,
+			"aggression" : 0.6,
+			"partisanship" : 0.9
+		},
+		{
+			"name" : "DARTH_MEOWL",
+			"leaning" : 0.0,
+			"aggression" : -1.0,
+			"partisanship" : -1.0
+		},
+		{
+			"name" : "BillStevens81",
+			"leaning" : 1.0,
+			"aggression" : -0.5,
+			"partisanship" : 0.0
+		},
+		{
+			"name" : "JanineJanerson2002",
+			"leaning" : -0.2,
+			"aggression" : -0.7,
+			"partisanship" : 0.2
+		},
+		{
+			"__REVIEW": false,
+			"name" : "penishaha",
+			"leaning" : 0.0,
+			"aggression" : 1.0,
+			"partisanship" : 0.0
+		},
+		{
+			"name" : "JillyMcBilly",
+			"leaning" : 0.8,
+			"aggression" : 0.7,
+			"partisanship" : 0.7
+		},
+		{
+			"name" : "CatInLingerie",
+			"leaning" : -0.7,
+			"aggression" : -0.1,
+			"partisanship" : 0.9
+		}
+	]
+}

@@ -1,171 +1,173 @@
 {
-	"__format": {
+	"__format":
+	{
 		"title" : "title of post",
-		"leaning" : "0:fancy < - - - > 0.5:neutral < - - - > 1:traditional",
-		"aggression" : "0:friendly < - - - > 0.5:neutral < - - - > 1:aggresive"
+		"leaning" : "-1:fancy < - - - > 0:neutral < - - - > 1:traditional",
+		"aggression" : "-1:friendly < - - - > 0:neutral < - - - > 1:aggresive"
 	},
-	"titles": [
+	"titles":
+	[
 		{
 			"title" : "Look at this dog with a hat on!",
-			"leaning" : 0.4,
-			"aggression" : 0.1
+			"leaning" : -0.2,
+			"aggression" : -0.6
 		},
 		{
 			"title" : "Squishing Your Cat Correctly",
-			"leaning" : 0.5,
-			"aggression" : 0.5
+			"leaning" : 0.0,
+			"aggression" : 0.0
 		},
 		{
 			"title" : "put leash on iguana???",
-			"leaning" : 0.6,
-			"aggression" : 0.5
+			"leaning" : 0.2,
+			"aggression" : 0.0
 		},
 		{
 			"title" : "cats suck",
-			"leaning" : 0.5,
+			"leaning" : 0.0,
 			"aggression" : 1.0
 		},
 		{
 			"title" : "I taught my dog to skateboard!",
-			"leaning" : 0.1,
-			"aggression" : 0.2
+			"leaning" : -0.6,
+			"aggression" : -0.2
 		},
 		{
 			"__REVIEW": true,
 			"title" : "my 'pet' isn't getting in 'bed' with me",
-			"leaning" : 0.0,
-			"aggression" : 0.5
+			"leaning" : -1.0,
+			"aggression" : 0.0
 		},
 		{
 			"title" : "Pet's belong in a cage and on a leash!!!",
 			"leaning" : 1.0,
-			"aggression" : 0.9
+			"aggression" : 0.8
 		},
 		{
 			"title" : "my dog is gay come at me haterz",
-			"leaning" : 0.2,
-			"aggression" : 0.8
+			"leaning" : -0.2,
+			"aggression" : 0.6
 		},
 		{
 			"title" : "Dogs should NOT wear shoes",
-			"leaning" : 0.7,
-			"aggression" : 0.8
+			"leaning" : 0.4,
+			"aggression" : 0.6
 		},
 		{
 			"title" : "Which way do pig's pants go on?",
-			"leaning" : 0.3,
-			"aggression" : 0.5
+			"leaning" : --0.2,
+			"aggression" : 0.0
 		},
 		{
 			"title" : "leash haters die!!!!!!!!!!!!!!!!!!!!Q!!!!",
-			"leaning" : 0.8,
+			"leaning" : 0.6,
 			"aggression" : 1.0
 		},
 		{
 			"title" : "I taught my dog economics and now he's a college professor",
-			"leaning" : 0.0,
-			"aggression" : 0.4
+			"leaning" : -1.0,
+			"aggression" : -0.2
 		},
 		{
 			"__REVIEW": true,
 			"title" : "How do I un-gay my dog?",
-			"leaning" : 0.9,
-			"aggression" : 0.5
+			"leaning" : 0.8,
+			"aggression" : 0.0
 		},
 		{
 			"title" : "MY CAT WON'T UN-SQUISH",
-			"leaning" : 0.5,
-			"aggression" : 0.7
+			"leaning" : 0.0,
+			"aggression" : 0.4
 		},
 		{
 			"__REVIEW": true,
 			"title" : "This is a petplay forum right?",
-			"leaning" : 0.5,
-			"aggression" : 0.0
+			"leaning" : 0.0,
+			"aggression" : -1.0
 		},
 		{
 			"title" : "beginning to think my cat is actually a man in a cat costume",
-			"leaning" : 0.5,
-			"aggression" : 0.5
+			"leaning" : 0.0,
+			"aggression" : 0.0
 		},
 		{
 			"title" : "My dog keeps saying bad words when he think's I'm not listening.",
-			"leaning" : 0.6,
-			"aggression" : 0.5
+			"leaning" : 0.2,
+			"aggression" : 0.0
 		},
 		{
 			"title" : "DEATH TO CAGES! DEATH TO LEASHES! PET REVOLUTION NOW!",
-			"leaning" : 0.0,
+			"leaning" : -1.0,
 			"aggression" : 1.0
 		},
 		{
 			"title" : "My cat said she was actually a witch and left for Ohio. WHY OHIO THO???",
-			"leaning" : 0.3,
-			"aggression" : 0.7
+			"leaning" : --0.2,
+			"aggression" : 0.4
 		},
 		{
 			"title" : "check out this fish smoking a joint",
-			"leaning" : 0.2,
-			"aggression" : 0.3
+			"leaning" : -0.2,
+			"aggression" : --0.2
 		},
 		{
 			"title" : "I think my dog is addicted to sex",
-			"leaning" : 0.5,
-			"aggression" : 0.5
+			"leaning" : 0.0,
+			"aggression" : 0.0
 		},
 		{
 			"title" : "Look at how pretty my darling's leash is!",
-			"leaning" : 0.6,
-			"aggression" : 0.2
+			"leaning" : 0.2,
+			"aggression" : -0.2
 		},
 		{
 			"title" : "Everyone's yelling at me for shock collaring on cat? Why?",
-			"leaning" : 0.9,
-			"aggression" : 0.5
+			"leaning" : 0.8,
+			"aggression" : 0.0
 		},
 		{
 			"title" : "I think my husband is having an affair with my hamster",
-			"leaning" : 0.5,
-			"aggression" : 0.5
+			"leaning" : 0.0,
+			"aggression" : 0.0
 		},
 		{
 			"title" : "THE PETPOCALYPSE APPROACHES! HIDE YOUR PETS FROM THE DEVOURER!",
-			"leaning" : 0.5,
+			"leaning" : 0.0,
 			"aggression" : 1.0
 		},
 		{
 			"title" : "gave my declawed cat a gun. Now she hunts with me!",
-			"leaning" : 0.1,
-			"aggression" : 0.4
+			"leaning" : -0.6,
+			"aggression" : -0.2
 		},
 		{
 			"title" : "My cat started chanting some weird language and glowing red",
-			"leaning" : 0.5,
-			"aggression" : 0.5
+			"leaning" : 0.0,
+			"aggression" : 0.0
 		},
 		{
 			"title" : "Baxter, my dog, keeps lighting me on fire FOR NO REASON",
-			"leaning" : 0.6,
-			"aggression" : 0.8
+			"leaning" : 0.2,
+			"aggression" : 0.6
 		},
 		{
 			"title" : "Maybe leashes aren't so bad. Discuss",
-			"leaning" : 0.5,
-			"aggression" : 0.2
+			"leaning" : 0.0,
+			"aggression" : -0.2
 		},
 		{
 			"title" : "Why do shock collars exist? They seem pretty bad and mean and stuff",
-			"leaning" : 0.5,
-			"aggression" : 0.3
+			"leaning" : 0.0,
+			"aggression" : --0.2
 		},
 		{
 			"title" : "my father read 'The Raven' and now thinks he's a raven. please help me...",
-			"leaning" : 0.5,
-			"aggression" : 0.1
+			"leaning" : 0.0,
+			"aggression" : -0.6
 		},
 		{
 			"title" : "FURRIES ARE NOT PETS",
-			"leaning" : 0.8,
+			"leaning" : 0.6,
 			"aggression" : 1.0
 		}
 	]
