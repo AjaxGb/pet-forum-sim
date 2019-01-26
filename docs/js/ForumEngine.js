@@ -1,4 +1,5 @@
 import ForumThread from './ForumThread.js';
+import User from './User.js';
 
 export default class ForumEngine {
 	constructor(maxThreads, threadTemplate, threadContainer) {
@@ -10,6 +11,8 @@ export default class ForumEngine {
 		
 		this.currentTick = 0;
 		this.tick = this.tick.bind(this);
+		this.stopSim = this.stopSim.bind(this);
+		this.createThread = this.createThread.bind(this);
 		this._intervalID = null;
 	}
 	
@@ -29,6 +32,21 @@ export default class ForumEngine {
 	
 	tick() {
 		this.currentTick++;
+		
+		for (var i = 0; i < this._threads.length; i++)
+		{
+			if (this.currentTick % 20 + i > 21)
+				this._threads[i].addPost(new User("temp"));
+		}
+		if (this.currentTick % 17 == 0)
+		{
+			this.createThread("Dogs", new User("cur"), 0, 0.5);
+		}
+		
+		if (this.currentTick > 200)
+		{
+			this.stopSim();
+		}
 		
 		// Users can enter or leave threads
 		// Users can make "posts" in threads
