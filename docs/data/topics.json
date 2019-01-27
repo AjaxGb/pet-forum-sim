@@ -102,13 +102,13 @@
 		},
 		{
 			"title" : "My cat said she was actually a witch and left for Ohio. WHY OHIO THO???",
-			"leaning" : --0.2,
+			"leaning" : -0.2,
 			"aggression" : 0.4
 		},
 		{
 			"title" : "check out this fish smoking a joint",
 			"leaning" : -0.2,
-			"aggression" : --0.2
+			"aggression" : -0.2
 		},
 		{
 			"title" : "I think my dog is addicted to sex",
@@ -158,7 +158,7 @@
 		{
 			"title" : "Why do shock collars exist? They seem pretty bad and mean and stuff",
 			"leaning" : 0.0,
-			"aggression" : --0.2
+			"aggression" : -0.2
 		},
 		{
 			"title" : "my father read 'The Raven' and now thinks he's a raven. please help me...",
