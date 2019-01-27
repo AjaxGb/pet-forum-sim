@@ -1,17 +1,53 @@
 import ForumThread from './ForumThread.js';
 import User from './User.js';
+import { randomChoice } from './utils.js';
 
 export default class ForumEngine {
 	constructor(maxThreads, threadTemplate, threadContainer) {
 		this._threadTemplate = threadTemplate;
 		this._threadContainer = threadContainer;
 		
+		this.threadTitles = null;
 		this._threads = [];
 		this.maxThreads = maxThreads;
+		
+		this.potentialUsers = null;
+		this._users = [];
 		
 		this.currentTick = 0;
 		this.tick = this.tick.bind(this);
 		this._intervalID = null;
+	}
+	
+	async loadTopics(url) {
+		const resp = await fetch(url);
+		if (!resp.ok) {
+			throw new Error(`Failed to load topics data: \
+				${resp.status} ${resp.statusText}`);
+		}
+		
+		const data = await resp.json();
+		
+		this.threadTitles = data.titles;
+	}
+	
+	async loadUsers(url) {
+		const resp = await fetch(url);
+		if (!resp.ok) {
+			throw new Error(`Failed to load users data: \
+				${resp.status} ${resp.statusText}`);
+		}
+		
+		const data = await resp.json();
+		
+		this.potentialUsers = data.users;
+	}
+	
+	async load(topicsURL, usersURL) {
+		await Promise.all([
+			this.loadTopics(topicsURL),
+			this.loadUsers(usersURL),
+		]);
 	}
 	
 	startSim() {
@@ -31,14 +67,14 @@ export default class ForumEngine {
 	tick() {
 		this.currentTick++;
 		
-		for (var i = 0; i < this._threads.length; i++)
+		for (let i = 0; i < this._threads.length; i++)
 		{
 			if (this.currentTick % 20 + i > 21)
 				this._threads[i].addPost(new User("temp"));
 		}
 		if (this.currentTick % 17 == 0)
 		{
-			this.createThread("Dogs", new User("cur"), 0, 0.5);
+			this.createThread(new User("cur"), 0, 0.5);
 		}
 		
 		if (this.currentTick > 200)
@@ -57,12 +93,22 @@ export default class ForumEngine {
 		this.updateThreadPositions();
 	}
 	
-	createThread(title, author, leaning, flame) {
+	_pickMatchingTitle(author, leaning, flame) {
+		// TODO: Actually pick an appropriate title
+		// TODO: Prevent the same thread from showing up too often
+		return randomChoice(this.threadTitles).title;
+	}
+	
+	createThread(author, leaning, flame,
+			title=this._pickMatchingTitle(author, leaning, flame)) {
+		
 		const thread = new ForumThread(
 			this, this._threadTemplate,
 			title, author, leaning, flame);
+		
 		this._threads.push(thread);
 		this._threadContainer.append(thread.elRoot);
+		
 		return thread;
 	}
 	

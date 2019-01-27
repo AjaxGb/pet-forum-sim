@@ -5,28 +5,7 @@
 	<title>WeLikePets Forum</title>
 	<link rel="stylesheet" href="index.css">
 	
-	<script type="module">
-		import ForumEngine from './js/ForumEngine.js';
-		import User from './js/User.js';
-		
-		const forumEngine = new ForumEngine(10,
-			document.getElementById('thread-template'),
-			document.getElementById('threads-container'),
-		);
-		
-		// Expose for debugging
-		window.forumEngine = forumEngine;
-		
-		forumEngine.createThread("Hi i'm new",
-			new User('jjFrankz16'), 0, 0);
-		forumEngine.createThread('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
-			new User('A'), -0.2, 1);
-		forumEngine.createThread('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-			new User('xxXXMurderDemonXXxx'), 0.4, 0);
-		forumEngine.createThread('TEST',
-			new User('TEST'), 1, 1).addPost(new User('bbb'), -1, 0.5);
-		forumEngine.startSim();
-	</script>
+	<script type="module" src="js/index.js"></script>
 </head>
 <body>
 	<section id="threads-container">
