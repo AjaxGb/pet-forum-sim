@@ -236,7 +236,7 @@
 			"aggression" : 0.3
 		},
 		{
-			"title" : "Jon Langisboroughson needs to stop feeding his pets to   T H E   D E V O U R E R",
+			"title" : "Jon Langisboroughson needs to stop feeding his pets to....................    T H E   D E V O U R E R",
 			"leaning" : 0.0,
 			"aggression" : 0.6
 		},
@@ -254,6 +254,262 @@
 			"title" : "dogs are stinky... put them away",
 			"leaning" : 0.5,
 			"aggression" : 0.8
+		},
+		{
+			"title" : "Can I teach my cat how to roll over?",
+			"leaning" : 0.0,
+			"aggression" : -0.2
+		},
+		{
+			"title" : "So should I support my local pet store?",
+			"leaning" : ,
+			"aggression" : 
+		},
+		{
+			"title" : "bats make great pets!",
+			"leaning" : ,
+			"aggression" : 
+		},
+		{
+			"title" : "Nothing like that soft, warm llama fur",
+			"leaning" : ,
+			"aggression" : 
+		},
+		{
+			"title" : "My black labrador retreever has a robotic front leg! AMA",
+			"leaning" : -0.5,
+			"aggression" : -0.3
+		},
+		{
+			"title" : "Pet food brand discourse",
+			"leaning" : 0.0,
+			"aggression" : -0.2
+		},
+		{
+			"title" : "Let's talk pet food",
+			"leaning" : 0.0,
+			"aggression" : -0.3
+		},
+		{
+			"title" : "The local grocer stopped selling TrusteeBites. What's the next best dog food brand?",
+			"leaning" : 0.0,
+			"aggression" : -0.7
+		},
+		{
+			"title" : "frog will not stop eat flowers. should I be concern?",
+			"leaning" : 0.0,
+			"aggression" : 0.0
+		},
+		{
+			"title" : "Why does everyone keep saying grawk?",
+			"leaning" : 0.0,
+			"aggression" : -0.2
+		},
+		{
+			"title" : "Various pets in toupee appreciation thread",
+			"leaning" : -0.4,
+			"aggression" : -0.4
+		},
+		{
+			"title" : "how dare you     !",
+			"leaning" : 0.0,
+			"aggression" : 0.7
+		},
+		{
+			"title" : "my neighbor keeps trying to hunt my pet duck",
+			"leaning" : 0.0,
+			"aggression" : 0.0
+		},
+		{
+			"title" : "So we ever gonna resolve that dogs vs cats debate?",
+			"leaning" : 0.0,
+			"aggression" : 0.2
+		},
+		{
+			"title" : "First my neighbor, now my cat. How you can become the man, the myth, the legend, Charles. Only five installments of five every five.",
+			"leaning" : 0.0,
+			"aggression" : 0.0
+		},
+		{
+			"title" : "I's keeps telling yous I ain't's gots no cats",
+			"leaning" : 0.0,
+			"aggression" : 0.3
+		},
+		{
+			"title" : "Horse appreciation post! God I love horses!",
+			"leaning" : 0.0,
+			"aggression" : 0.0
+		},
+		{
+			"title" : "Hamsters are rad yall",
+			"leaning" : 0.0,
+			"aggression" : 0.0
+		},
+		{
+			"title" : "dog-posting sucks!!!",
+			"leaning" : 0.0,
+			"aggression" : 0.5
+		},
+		{
+			"title" : "DOG-POSTING. All day erryday",
+			"leaning" : 0.0,
+			"aggression" : 0.0
+		},
+		{
+			"title" : "Lets get on that dog-posting boizzzzz",
+			"leaning" : 0.0,
+			"aggression" : 0.1
+		},
+		{
+			"title" : "dog-posting non-stop bi-annual edition",
+			"leaning" : 0.0,
+			"aggression" : 0.0
+		},
+		{
+			"title" : "Beginner dog-posting thread. Come in and post some dogs if you're new!",
+			"leaning" : 0.0,
+			"aggression" : -1.0
+		},
+		{
+			"title" : "So what the heckle is dog-posting?",
+			"leaning" : 0.0,
+			"aggression" : 0.2
+		},
+		{
+			"title" : "Cat-posting was ahead of its time",
+			"leaning" : -0.2,
+			"aggression" : 0.0
+		},
+		{
+			"title" : "Best cages info thread",
+			"leaning" : 0.5,
+			"aggression" : -0.5
+		},
+		{
+			"title" : "Best leashes of this year",
+			"leaning" : 0.5,
+			"aggression" : -0.2
+		},
+		{
+			"title" : "Fishtank or fishbowl? The eternal question",
+			"leaning" : 0.3,
+			"aggression" : 0.0
+		},
+		{
+			"title" : "best cat food?",
+			"leaning" : 0.0,
+			"aggression" : -0.4
+		},
+		{
+			"title" : "I think I may have found the best cat food",
+			"leaning" : 0.0,
+			"aggression" : -0.1
+		},
+		{
+			"title" : "What cat food should I buy?",
+			"leaning" : 0.0,
+			"aggression" : -0.3
+		},
+		{
+			"title" : "So don't buy TrusteeBites for Cats! My cat gained 2 pounds within a week!",
+			"leaning" : 0.0,
+			"aggression" : 0.3
+		},
+		{
+			"title" : "Hamster pellets are too expensive!",
+			"leaning" : 0.0,
+			"aggression" : 0.1
+		},
+		{
+			"title" : "So it turns out Wallaceson leashes are bad for dog necks",
+			"leaning" : 0.2,
+			"aggression" : -0.2
+		},
+		{
+			"title" : "please don't put a leash on your cat",
+			"leaning" : 0.0,
+			"aggression" : -0.1
+		},
+		{
+			"title" : "Fish food flakes are stinky. Any other options?",
+			"leaning" : 0.0,
+			"aggression" : -0.3
+		},
+		{
+			"title" : "okay so using a leash and a cage at the same time is overkill guys",
+			"leaning" : 0.2,
+			"aggression" : 0.2
+		},
+		{
+			"title" : "Leashes are dumb!",
+			"leaning" : -0.3,
+			"aggression" : 0.8
+		},
+		{
+			"title" : "Can we talk about the recent Wallaceson's leash?",
+			"leaning" : 0.1,
+			"aggression" : -0.2
+		},
+		{
+			"title" : "This forum is dumb!!!!!!!!!!",
+			"leaning" : 0.0,
+			"aggression" : 1.0
+		},
+		{
+			"title" : "my dog won't shut up",
+			"leaning" : 0.1,
+			"aggression" : 0.5
+		},
+		{
+			"title" : "My flamingo started wearing a Yankees hat... I HATE the Yankees",
+			"leaning" : 0.0,
+			"aggression" : 0.9
+		},
+		{
+			"title" : "Someone keeps responding to all my posts with a picture of a dog in sombrero wearing a bikini? Why?",
+			"leaning" : 0.2,
+			"aggression" : -0.2
+		},
+		{
+			"__REVIEW": false,
+			"title" : "the moderator SUCKS BIG DUCK",
+			"leaning" : 0.0,
+			"aggression" : 1.0
+		},
+		{
+			"title" : "Mr. Toad is a highly inaccurate representation of civilized toads and wildlife",
+			"leaning" : -0.9,
+			"aggression" : 0.4
+		},
+		{
+			"title" : "Please post dog nips (I'm not being weird, I'm worried my dog might have something wrong with her nipples)",
+			"leaning" : 0.0,
+			"aggression" : -0.6
+		},
+		{
+			"title" : "Dog and cat won't fight. Really annoying my son",
+			"leaning" : 0.9,
+			"aggression" : 0.1
+		},
+		{
+			"title" : "So cats are evil right?",
+			"leaning" : 0.3,
+			"aggression" : 0.2
+		},
+		{
+			"title" : "What's up with the big dog statue on the moon?",
+			"leaning" : 0.0,
+			"aggression" : -0.5
+		},
+		{
+			"title" : "Can we get another dog-posting thread up in here?",
+			"leaning" : 0.0,
+			"aggression" : -0.3
+		},
+		{
+			"title" : "DOG-POSTING = STUPID",
+			"leaning" : 0.0,
+			"aggression" : 1.0
 		}
 	]
 }
