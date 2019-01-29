@@ -262,18 +262,18 @@
 		},
 		{
 			"title" : "So should I support my local pet store?",
-			"leaning" : ,
-			"aggression" : 
+			"leaning" : 0.0,
+			"aggression" : -0.1
 		},
 		{
 			"title" : "bats make great pets!",
-			"leaning" : ,
-			"aggression" : 
+			"leaning" : -0.1,
+			"aggression" : -0.5
 		},
 		{
 			"title" : "Nothing like that soft, warm llama fur",
-			"leaning" : ,
-			"aggression" : 
+			"leaning" : -0.1,
+			"aggression" : -0.4
 		},
 		{
 			"title" : "My black labrador retreever has a robotic front leg! AMA",
