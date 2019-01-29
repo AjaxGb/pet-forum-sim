@@ -65,19 +65,56 @@ export default class ForumEngine {
 	}
 	
 	tick() {
-		this.currentTick++;
-		
-		for (let i = 0; i < this._threads.length; i++)
+		if (this.currentTick % 25 == 0)
 		{
-			if (this.currentTick % 20 + i > 21)
-				this._threads[i].addPost(new User("temp"));
-		}
-		if (this.currentTick % 17 == 0)
-		{
-			this.createThread(new User("cur"), 0, 0.5);
+			//calculate forum stats to determine users to show up
+			//for now, just pull from potentialUsers randomly
+			
+			if (true)
+			{
+				let newUser = randomChoice(this.potentialUsers);
+				this._users.push(new User(newUser.name, newUser.leaning, newUser.partisanship, newUser.aggression));
+			}
+			
+			if (this.currentTick % 50 == 0)
+			{
+				let newAuthor = randomChoice(this._users);
+				this.createThread(newAuthor, newAuthor.leaning, newAuthor.jerkiness);
+			}
 		}
 		
-		if (this.currentTick > 200)
+		for (let i = this.currentTick % 5;i < this._users.length;i = i + 5)
+		{
+			//picks newer posts over older ones
+			//for now, this is according to how far down the page the post is
+			let currentUser = this._users[i];
+			
+			let r = Math.floor(Math.random() * 3);
+			let threadIndex = (this._threads.length - 1) - r;
+			if (threadIndex < 0)
+				threadIndex = 0;
+			
+			while (threadIndex >= 0)
+			{
+				let lookThread = this._threads[threadIndex];
+				
+				if (lookThread.flameAmount / 2 < currentUser.jerkiness && true /*what the heck would the formula be???*/)
+				{
+					this._threads[threadIndex].addPost(currentUser, currentUser.leaning, currentUser.jerkiness);
+					
+					break;
+				}
+				
+				threadIndex--;
+			}
+			
+			if (threadIndex < 0)
+			{
+				//mark user for removal. i.e: user is leaving the forum
+			}
+		}
+		
+		if (this.currentTick > 500)
 		{
 			this.stopSim();
 		}
@@ -89,6 +126,10 @@ export default class ForumEngine {
 		// New users can join
 		
 		// Moderator users can also take actions
+		
+		//for all threads: update values
+		
+		this.currentTick++;
 		
 		this.updateThreadPositions();
 	}

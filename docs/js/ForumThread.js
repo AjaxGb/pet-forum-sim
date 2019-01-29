@@ -85,9 +85,9 @@ export default class ForumThread {
 		const modifier = Math.min(1,
 			length / this.minPostsForFullStrength);
 		
-		this.flameAmount = flame / totalWeight * modifier;
-		this.radAmount = rad / totalWeight * modifier;
-		this.elegantAmount = elegant / totalWeight * modifier;
+		this.flameAmount = flame / totalWeight * modifier * 0.5;	//I EDITED THESE
+		this.radAmount = rad / totalWeight * modifier * 0.5;
+		this.elegantAmount = elegant / totalWeight * modifier * 0.5;
 	}
 	
 	calculateHeat() {
