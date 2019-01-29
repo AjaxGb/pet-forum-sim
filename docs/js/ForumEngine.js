@@ -17,6 +17,12 @@ export default class ForumEngine {
 		this.currentTick = 0;
 		this.tick = this.tick.bind(this);
 		this._intervalID = null;
+		
+		// No bind needed (yet)
+		threadContainer.addEventListener('click',
+			this._onClick);
+		threadContainer.addEventListener('contextmenu',
+			this._onContext);
 	}
 	
 	async loadTopics(url) {
@@ -61,6 +67,49 @@ export default class ForumEngine {
 		if (this._intervalID !== null) {
 			clearInterval(this._intervalID);
 			this._intervalID = null;
+		}
+	}
+	
+	_onContext(event) {
+		if (!event
+			|| !event.target
+			|| !event.target.classList) return;
+		
+		const target = event.target;
+		
+		if (target.classList.contains('thread-action')) {
+			event.preventDefault();
+		}
+	}
+	
+	_onClick(event) {
+		if (!event
+			|| !event.target
+			|| !event.target.classList) return;
+		
+		const target = event.target;
+		
+		if (target.classList.contains('thread-action')) {
+			event.preventDefault();
+			
+			if (event.ctrlKey || event.altKey || event.shiftKey) {
+				return;
+			}
+			
+			const thread = ForumThread.getByElement(
+				target.closest('.thread'));
+			
+			switch (target.dataset.buttonAction) {
+			case "lock":
+				thread.lock();
+				break;
+			case "hide":
+				thread.hide();
+				break;
+			case "pin":
+				thread.pin();
+				break;
+			}
 		}
 	}
 	

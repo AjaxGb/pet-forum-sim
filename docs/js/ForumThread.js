@@ -1,3 +1,5 @@
+const threadElementMap = new WeakMap();
+
 export default class ForumThread {
 	constructor(forum, template, title, author, leaning, flame) {
 		this._forum = forum;
@@ -7,6 +9,7 @@ export default class ForumThread {
 		const clone = document.importNode(template.content, true);
 		
 		this.elRoot = clone.getElementById('root');
+		threadElementMap.set(this.elRoot, this);
 		
 		this.elFlameBar = clone.getElementById('flame-bar');
 		this.elRadBar = clone.getElementById('rad-bar');
@@ -33,6 +36,10 @@ export default class ForumThread {
 		this.postCount = 0;
 		this.recentPosts = [];
 		this.addPost(author, leaning, flame);
+	}
+	
+	static getByElement(element) {
+		return threadElementMap.get(element);
 	}
 	
 	addPost(user, leaning=0, flame=0, tick=this._forum.currentTick) {
@@ -93,6 +100,21 @@ export default class ForumThread {
 	calculateHeat() {
 		// TODO
 		return 0;
+	}
+	
+	lock() {
+		console.log(this, 'Lock!');
+		// TODO
+	}
+	
+	hide() {
+		console.log(this, 'Hide!');
+		// TODO
+	}
+	
+	pin() {
+		console.log(this, 'Pin!');
+		// TODO
 	}
 	
 	get title() {

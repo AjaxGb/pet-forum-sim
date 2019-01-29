@@ -163,3 +163,17 @@ body {
 	content: ">";
 	margin-right: 5px;
 }
+
+.thread-action {
+	color: black;
+	cursor: pointer;
+}
+
+.thread-action:hover {
+	color: black;
+	text-decoration: underline;
+}
+
+.thread-action:active {
+	color: red;
+}
