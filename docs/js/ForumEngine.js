@@ -17,6 +17,8 @@ export default class ForumEngine {
 		this.currentTick = 0;
 		this.tick = this.tick.bind(this);
 		this._intervalID = null;
+		
+		this.flameMod = 0;
 	}
 	
 	async loadTopics(url) {
@@ -70,18 +72,39 @@ export default class ForumEngine {
 			//calculate forum stats to determine users to show up
 			//for now, just pull from potentialUsers randomly
 			
-			if (true)
+			if (true)	//change to pick users based on userbase (earlier in, more varied users)
 			{
-				let newUser = randomChoice(this.potentialUsers);
+				console.log("User added");
+				let n = Math.floor(Math.random() * this.potentialUsers.length);
+				if (this.currentTick < 150)
+				{
+					while (Math.abs(this.potentialUsers[n].leaning) > 0.3)
+					{
+						n = Math.floor(Math.random() * this.potentialUsers.length);
+					}
+				}
+				let newUser = this.potentialUsers[n];
 				this._users.push(new User(newUser.name, newUser.leaning, newUser.partisanship, newUser.aggression));
+				this.potentialUsers.splice(n, 1);
 			}
 			
 			if (this.currentTick % 50 == 0)
 			{
 				let newAuthor = randomChoice(this._users);
-				this.createThread(newAuthor, newAuthor.leaning, newAuthor.jerkiness);
+				this.createThread(newAuthor, newAuthor.leaning, newAuthor.jerkiness + (this.flameMod / 5));
+			}
+			
+			if (this.currentTick % 100 == 0)
+			{
+				for (let i = 0;i < this._threads.length;i++)
+				{
+					this.flameMod += this._threads[i].flameAmount;
+				}
+				this.flameMod = this.flameMod / this.maxThreads;
 			}
 		}
+		
+		let removeUser = -1;
 		
 		for (let i = this.currentTick % 5;i < this._users.length;i = i + 5)
 		{
@@ -98,11 +121,17 @@ export default class ForumEngine {
 			{
 				let lookThread = this._threads[threadIndex];
 				
-				if (lookThread.flameAmount / 2 < currentUser.jerkiness && true /*what the heck would the formula be???*/)
+				if (lookThread.flameAmount < (currentUser.jerkiness + 1) / 2)
 				{
-					this._threads[threadIndex].addPost(currentUser, currentUser.leaning, currentUser.jerkiness);
-					
-					break;
+					let lenience = (1 - currentUser.partisanship) / 2;
+					if (currentUser.leaning + lookThread.elegantAmount <  lenience || currentUser.leaning - lookThread.radAmount <  lenience
+						|| lookThread.elegantAmount + lookThread.radAmount < lenience)
+					{
+						console.log("WOW");
+						this._threads[threadIndex].addPost(currentUser, currentUser.leaning, currentUser.jerkiness + (this.flameMod / 5));
+						
+						break;
+					}
 				}
 				
 				threadIndex--;
@@ -110,8 +139,23 @@ export default class ForumEngine {
 			
 			if (threadIndex < 0)
 			{
-				//mark user for removal. i.e: user is leaving the forum
+				if (Math.random < 0.9)
+				{
+					if (this._threads.length < 5)
+						randomChoice(this._threads).addPost(currentUser, currentUser.leaning, currentUser.jerkiness + (this.flameMod / 5));
+					else
+						this._threads[Math.floor(Math.random() * 5)].addPost(currentUser, currentUser.leaning, currentUser.jerkiness + (this.flameMod / 5));
+				}
+				else
+				{
+					removeUser = i;
+				}
 			}
+		}
+		
+		if (removeUser != -1)
+		{
+			this._users.splice(removeUser, 1);
 		}
 		
 		if (this.currentTick > 500)
