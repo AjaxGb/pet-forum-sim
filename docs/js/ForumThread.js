@@ -93,12 +93,12 @@ export default class ForumThread {
 			
 			totalWeight += weight;
 			
-			flame += post.flame * weight * 1.65;
+			flame += post.flame * weight * 1.3;
 			
 			if (post.leaning < 0) {
 				rad -= post.leaning * weight * 2;
 			} else {
-				elegant += post.leaning * weight * 2;
+				elegant += post.leaning * weight * 2.4;
 			}
 		}
 		

@@ -193,9 +193,9 @@ export default class ForumEngine {
 			const visibleThreads = this._threads.filter(t => !t.hidden);
 			
 			let r = Math.floor(Math.random() * 3);
-			let threadIndex = (visibleThreads.length - 1) - r;
-			if (threadIndex < 0)
-				threadIndex = 0;
+			let threadIndex = 0 + r;
+			if (threadIndex >= visibleThreads.length)
+				threadIndex = visibleThreads.length - 1;
 			
 			while (threadIndex >= 0 && threadIndex < visibleThreads.length)
 			{
@@ -207,8 +207,7 @@ export default class ForumEngine {
 					if (currentUser.leaning + lookThread.elegantAmount <  lenience || currentUser.leaning - lookThread.radAmount <  lenience
 						|| (lookThread.elegantAmount + lookThread.radAmount) * 2 < lenience)
 					{
-						let temp = visibleThreads[threadIndex];
-						if (temp.locked)
+						if (lookThread.locked)
 						{
 							if (lookThread.flameAmount * 2 > (currentUser.jerkiness + 1) / 2)
 							{
@@ -221,13 +220,13 @@ export default class ForumEngine {
 						}
 						else
 						{
-							temp.addPost(currentUser, currentUser.leaning, currentUser.jerkiness + (this.flameMod / 5));
+							lookThread.addPost(currentUser, currentUser.leaning, currentUser.jerkiness + (this.flameMod / 5));
 						}
 						break;
 					}
 				}
 				
-				threadIndex--;
+				threadIndex++;
 			}
 			
 			if (threadIndex < 0)
