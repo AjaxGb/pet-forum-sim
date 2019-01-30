@@ -506,6 +506,18 @@
 			"leaning" : -0.3,
 			"aggression" : 0,
 			"partisanship" : 0
+		},
+		{
+			"name" : "PM me dogposts",
+			"leaning" : -0.3,
+			"aggression" : -0.6,
+			"partisanship" : 0.2
+		},
+		{
+			"name" : "SaneCatLady!!!!!1834",
+			"leaning" : -0.7,
+			"aggression" : 0.7,
+			"partisanship" : 1
 		}
 	]
 }
