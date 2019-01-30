@@ -1,5 +1,6 @@
 import ForumEngine from './ForumEngine.js';
 import User from './User.js';
+import { delay } from './utils.js';
 
 (async function() {
 	const forumEngine = new ForumEngine(10,
@@ -27,6 +28,13 @@ import User from './User.js';
 			pinned: true,
 			locked: true,
 		});
+	
+	forumEngine.addEventAt(2400, () => {
+		console.log('stop sim');
+		forumEngine.stopSim();
+	});
+	
+	await delay(1000);
 	
 	forumEngine.startSim();
 })();

@@ -9,6 +9,8 @@ export default class ForumEngine {
 		
 		this.sounds = Object.create(null);
 		
+		this._tickEvents = [];
+		
 		this.threadTitles = null;
 		this._threads = [];
 		this.maxThreads = maxThreads;
@@ -58,6 +60,14 @@ export default class ForumEngine {
 			this.loadTopics(topicsURL),
 			this.loadUsers(usersURL),
 		]);
+	}
+	
+	addEventAt(tick, callback) {
+		this._tickEvents.push({
+			tick: tick,
+			callback: callback,
+		});
+		this._tickEvents.sort((a, b) => a.tick - b.tick);
 	}
 	
 	openSounds(sounds, prefix='', suffix='') {
@@ -269,6 +279,11 @@ export default class ForumEngine {
 		this.currentTick++;
 		
 		this.updateThreadPositions();
+		
+		while (this._tickEvents.length && this.currentTick >= this._tickEvents[0].tick) {
+			this._tickEvents[0].callback.call(null, this);
+			this._tickEvents.shift();
+		}
 	}
 	
 	determineEnding()
