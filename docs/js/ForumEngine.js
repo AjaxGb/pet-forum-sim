@@ -133,13 +133,10 @@ export default class ForumEngine {
 	tick() {
 		if (this.currentTick % 150 == 0)
 		{
-			//calculate forum stats to determine users to show up
-			//for now, just pull from potentialUsers randomly
-			
-			if (this.potentialUsers.length > 0)	//change to pick users based on userbase (earlier in, more varied users)
+			if (this.potentialUsers.length > 0)
 			{
 				let n = Math.floor(Math.random() * this.potentialUsers.length);
-				if (this.currentTick < 150)
+				if (this.currentTick < 600)
 				{
 					while (Math.abs(this.potentialUsers[n].leaning) > 0.3)
 					{
@@ -159,6 +156,7 @@ export default class ForumEngine {
 			
 			if (this.currentTick % 300 == 0)
 			{
+				this.flameMod *= 3;
 				for (let i = 0;i < this._threads.length;i++)
 				{
 					this.flameMod += this._threads[i].flameAmount;
@@ -190,13 +188,17 @@ export default class ForumEngine {
 				{
 					let lenience = (1 - currentUser.partisanship) / 2;
 					if (currentUser.leaning + lookThread.elegantAmount <  lenience || currentUser.leaning - lookThread.radAmount <  lenience
-						|| lookThread.elegantAmount + lookThread.radAmount < lenience)
+						|| (lookThread.elegantAmount + lookThread.radAmount) * 2 < lenience)
 					{
 						let temp = visibleThreads[threadIndex];
 						if (temp.locked)
 						{
 							if (lookThread.flameAmount * 2 > (currentUser.jerkiness + 1) / 2)
-								this.flameMod *= 1.05;
+							{
+								this.flameMod *= 1.15;
+								if (Math.random < 0.2)
+									removeUser = i;
+							}
 							else
 								this.flameMod *= 0.95;
 						}
@@ -213,7 +215,7 @@ export default class ForumEngine {
 			
 			if (threadIndex < 0)
 			{
-				if (Math.random < 0.975)
+				if (this.currentTick < 400)
 				{
 					if (visibleThreads.length < 3)
 					{
@@ -221,7 +223,7 @@ export default class ForumEngine {
 						if (temp.locked)
 						{
 							removeUser = i;
-							this.flameMod *= 1.03;
+							this.flameMod *= 1.1;
 						}
 						else
 							temp.addPost(currentUser, currentUser.leaning, currentUser.jerkiness + (this.flameMod / 5));
@@ -233,7 +235,7 @@ export default class ForumEngine {
 						if (temp.locked)
 						{
 							removeUser = i;
-							this.flameMod *= 1.03;
+							this.flameMod *= 1.1;
 						}
 						else
 							temp.addPost(currentUser, currentUser.leaning, currentUser.jerkiness + (this.flameMod / 5));
@@ -250,6 +252,9 @@ export default class ForumEngine {
 		{
 			this._users.splice(removeUser, 1);
 		}
+		
+		if (this.currentTick > 2400)
+			this.determineEnding();
 		
 		// Users can enter or leave threads
 		// Users can make "posts" in threads
@@ -268,13 +273,9 @@ export default class ForumEngine {
 	
 	determineEnding()
 	{
-		if (this.flameMod > 0.8)
+		if (this.flameMod > 0.84)
 		{
 			console.log("put up flame png");
-		}
-		else if (this._users.length < 5)
-		{
-			console.log("put up cricket png???");
 		}
 		else
 		{
@@ -283,12 +284,12 @@ export default class ForumEngine {
 			{
 				lean += this._users[i].leaning;
 			}
-			lean = lean / this._users[i].length;
-			if (lean > 0.4)
+			lean = lean / this._users.length;
+			if (lean > 0.1)
 			{
 				console.log("Traditional ending");
 			}
-			else if (lean < -0.4)
+			else if (lean < -0.1)
 			{
 				console.log("Cool ending");
 			}
@@ -301,11 +302,10 @@ export default class ForumEngine {
 	
 	_pickMatchingTitle(author, leaning, flame) {
 		let rant = Math.floor(Math.random() * this.threadTitles.length);
-		let len = 0.2;
+		let len = 0.15;
 		
 		while (Math.abs(this.threadTitles[rant].leaning - author.leaning) > len && Math.abs(this.threadTitles[rant].aggression - flame) > len)
 		{
-			len += 0.01;
 			rant = Math.floor(Math.random() * this.threadTitles.length);
 		}
 		let r = this.threadTitles[rant].title;
