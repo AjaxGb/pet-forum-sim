@@ -7,6 +7,8 @@ export default class ForumEngine {
 		this._threadTemplate = threadTemplate;
 		this._threadContainer = threadContainer;
 		
+		this.sounds = Object.create(null);
+		
 		this.threadTitles = null;
 		this._threads = [];
 		this.maxThreads = maxThreads;
@@ -56,6 +58,19 @@ export default class ForumEngine {
 			this.loadTopics(topicsURL),
 			this.loadUsers(usersURL),
 		]);
+	}
+	
+	openSounds(sounds, prefix='', suffix='') {
+		for (let [name, url] of Object.entries(sounds)) {
+			this.sounds[name] = new Audio(prefix + url + suffix);
+		}
+	}
+	
+	sound(name) {
+		const audio = this.sounds[name];
+		if (!audio) return;
+		audio.currentTime = 0;
+		audio.play();
 	}
 	
 	startSim() {
@@ -273,11 +288,12 @@ export default class ForumEngine {
 	}
 	
 	createThread(author, leaning, flame,
-			title=this._pickMatchingTitle(author, leaning, flame)) {
+			title=this._pickMatchingTitle(author, leaning, flame),
+			options={}) {
 		
 		const thread = new ForumThread(
 			this, this._threadTemplate,
-			title, author, leaning, flame);
+			title, author, leaning, flame, options);
 		
 		this._threads.push(thread);
 		this._threadContainer.append(thread.elRoot);

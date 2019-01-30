@@ -1,7 +1,8 @@
 const threadElementMap = new WeakMap();
 
 export default class ForumThread {
-	constructor(forum, template, title, author, leaning, flame) {
+	constructor(forum, template, title, author, leaning, flame, options={}) {
+		
 		this._forum = forum;
 		this._title = title;
 		this._author = author;
@@ -42,9 +43,9 @@ export default class ForumThread {
 		this.recentPosts = [];
 		this.addPost(author, leaning, flame);
 		
-		this.locked = false;
-		this.hidden = false;
-		this.pinned = false;
+		this.locked = !!options.locked;
+		this.hidden = !!options.hidden;
+		this.pinned = !!options.pinned;
 	}
 	
 	static getByElement(element) {
@@ -118,13 +119,17 @@ export default class ForumThread {
 	}
 	
 	set locked(val) {
+		const changed = !this._locked !== !val;
+		
 		this._locked = val;
 		if (val) {
 			this.elRoot.classList.add('locked');
 			this.elLockAction.innerText = 'Unlock';
+			if (changed) this._forum.sound('lock');
 		} else {
 			this.elRoot.classList.remove('locked');
 			this.elLockAction.innerText = 'Lock';
+			if (changed) this._forum.sound('unlock');
 		}
 	}
 	
@@ -133,13 +138,17 @@ export default class ForumThread {
 	}
 	
 	set hidden(val) {
+		const changed = !this._hidden !== !val;
+		
 		this._hidden = val;
 		if (val) {
 			this.elRoot.classList.add('hidden');
 			this.elHideAction.innerText = 'Unhide';
+			if (changed) this._forum.sound('hide');
 		} else {
 			this.elRoot.classList.remove('hidden');
 			this.elHideAction.innerText = 'Hide';
+			if (changed) this._forum.sound('unhide');
 		}
 	}
 	
@@ -148,13 +157,17 @@ export default class ForumThread {
 	}
 	
 	set pinned(val) {
+		const changed = !this._pinned !== !val;
+		
 		this._pinned = val;
 		if (val) {
 			this.elRoot.classList.add('pinned');
 			this.elPinAction.innerText = 'Unpin';
+			if (changed) this._forum.sound('pin');
 		} else {
 			this.elRoot.classList.remove('pinned');
 			this.elPinAction.innerText = 'Pin';
+			if (changed) this._forum.sound('unpin');
 		}
 	}
 	
