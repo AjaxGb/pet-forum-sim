@@ -68,6 +68,270 @@
 			"leaning" : -0.7,
 			"aggression" : -0.1,
 			"partisanship" : 0.9
+		},
+		{
+			"name" : "Abernathy",
+			"leaning" : 0.4,
+			"aggression" : -0.9,
+			"partisanship" : -0.5
+		},
+		{
+			"name" : "RabbitFoot7",
+			"leaning" : 0.1,
+			"aggression" : 1,
+			"partisanship" : 0.6
+		},
+		{
+			"name" : "BingoBean22",
+			"leaning" : -0.7,
+			"aggression" : -0.7,
+			"partisanship" : -0.7
+		},
+		{
+			"name" : "GoatMom",
+			"leaning" : -0.9,
+			"aggression" : 0.2,
+			"partisanship" : 0.4
+		},
+		{
+			"name" : "Dobermanderson",
+			"leaning" : 0.9,
+			"aggression" : -0.5,
+			"partisanship" : 0.8
+		},
+		{
+			"name" : "Ferrrret",
+			"leaning" : -0.1,
+			"aggression" : 0.1,
+			"partisanship" : 0.9
+		},
+		{
+			"name" : "Abyssinian",
+			"leaning" : 0.6,
+			"aggression" : 0.4,
+			"partisanship" : 1
+		},
+		{
+			"name" : "Puggilist",
+			"leaning" : 1,
+			"aggression" : 1,
+			"partisanship" : 1
+		},
+		{
+			"name" : "Katadeus",
+			"leaning" : -0.5,
+			"aggression" : -0.8,
+			"partisanship" : -0.3
+		},
+		{
+			"name" : "millmoss",
+			"leaning" : -1.0,
+			"aggression" : 1.0,
+			"partisanship" : -1.0
+		},
+		{
+			"name" : "AjaxGb",
+			"leaning" : -0.5,
+			"aggression" : 0.2,
+			"partisanship" : 0.3
+		},
+		{
+			"name" : "Wolfman",
+			"leaning" : -0.8,
+			"aggression" : 0.8,
+			"partisanship" : 0.6
+		},
+		{
+			"name" : "peaceflower",
+			"leaning" : -1,
+			"aggression" : -1,
+			"partisanship" : -1
+		},
+		{
+			"name" : "BigSmellyDogFart",
+			"leaning" : 0,
+			"aggression" : 0,
+			"partisanship" : 0
+		},
+		{
+			"name" : "MyPoodleLife",
+			"leaning" : 0.6,
+			"aggression" : -0.9,
+			"partisanship" : 1
+		},
+		{
+			"name" : "DoGxXxGod",
+			"leaning" : 0.1,
+			"aggression" : 0.8,
+			"partisanship" : 0.3
+		},
+		{
+			"name" : "=HorsePower=",
+			"leaning" : 0.4,
+			"aggression" : 0.6,
+			"partisanship" : -0.3
+		},
+		{
+			"name" : "MACHIAVELLI",
+			"leaning" : 1,
+			"aggression" : 1,
+			"partisanship" : 0
+		},
+		{
+			"name" : "LOCKE",
+			"leaning" : -0.5,
+			"aggression" : 0,
+			"partisanship" : -1
+		},
+		{
+			"name" : "DEMOSTHENES",
+			"leaning" : 0.8,
+			"aggression" : 0.8,
+			"partisanship" : 1
+		},
+		{
+			"name" : "Cathode",
+			"leaning" : 0.2,
+			"aggression" : 0.2,
+			"partisanship" : -0.2
+		},
+		{
+			"name" : "DingoDean44",
+			"leaning" : -0.3,
+			"aggression" : 0.9,
+			"partisanship" : 0.4
+		},
+		{
+			"name" : "CatSuffragette",
+			"leaning" : 0,
+			"aggression" : 0.7,
+			"partisanship" : 1
+		},
+		{
+			"name" : "AlligatorNate",
+			"leaning" : 0.3,
+			"aggression" : -0.7,
+			"partisanship" : -0.3
+		},
+		{
+			"name" : "KittySpeed21",
+			"leaning" : -1,
+			"aggression" : 1,
+			"partisanship" : -0.5
+		},
+		{
+			"name" : "dogweed02",
+			"leaning" : -0.2,
+			"aggression" : -0.8,
+			"partisanship" : 0.7
+		},
+		{
+			"name" : "Caracaligula",
+			"leaning" : -0.4,
+			"aggression" : 0.7,
+			"partisanship" : 0.4
+		},
+		{
+			"name" : "xXJesusSavesXx",
+			"leaning" : -0.3,
+			"aggression" : -0.3,
+			"partisanship" : -0.3
+		},
+		{
+			"name" : "BigCatTrainer",
+			"leaning" : 0.9,
+			"aggression" : -0.5,
+			"partisanship" : 0.9
+		},
+		{
+			"name" : "myDogDIED",
+			"leaning" : -0.5,
+			"aggression" : 0.3,
+			"partisanship" : -0.8
+		},
+		{
+			"name" : "Breagle",
+			"leaning" : 0,
+			"aggression" : -0.7,
+			"partisanship" : -0.6
+		},
+		{
+			"name" : "BullCat",
+			"leaning" : 0.6,
+			"aggression" : 0.4,
+			"partisanship" : 0
+		},
+		{
+			"name" : "MouseEXPERT",
+			"leaning" : 0.4,
+			"aggression" : 0.4,
+			"partisanship" : 1
+		},
+		{
+			"name" : "German Leopard",
+			"leaning" : -0.6,
+			"aggression" : -0.6,
+			"partisanship" : 0.6
+		},
+		{
+			"name" : "DogsDontGoToHeaven",
+			"leaning" : 0.4,
+			"aggression" : 0.6,
+			"partisanship" : 0.8
+		},
+		{
+			"name" : "Duckweasel",
+			"leaning" : -0.1,
+			"aggression" : 0.4,
+			"partisanship" : -0.5
+		},
+		{
+			"name" : "Roonald",
+			"leaning" : -0.7,
+			"aggression" : -0.9,
+			"partisanship" : 0.4
+		},
+		{
+			"name" : "DOGS!!!",
+			"leaning" : -0.9,
+			"aggression" : -0.9,
+			"partisanship" : 0.5
+		},
+		{
+			"name" : "Lime",
+			"leaning" : 0.6,
+			"aggression" : 0.4,
+			"partisanship" : -0.2
+		},
+		{
+			"name" : "Mr. Mephistopheles",
+			"leaning" : -0.5,
+			"aggression" : 1,
+			"partisanship" : 0.3
+		},
+		{
+			"name" : "ProudGrandma36",
+			"leaning" : -0.3,
+			"aggression" : -0.9,
+			"partisanship" : -0.7
+		},
+		{
+			"name" : "LingoLean66",
+			"leaning" : 0.3,
+			"aggression" : -0.2,
+			"partisanship" : 0.1
+		},
+		{
+			"name" : "PetRock",
+			"leaning" : 0,
+			"aggression" : -0.5,
+			"partisanship" : 0
+		},
+		{
+			"name" : "Kappa",
+			"leaning" : -1,
+			"aggression" : 1,
+			"partisanship" : -0.3
 		}
 	]
 }
