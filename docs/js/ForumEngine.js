@@ -100,14 +100,14 @@ export default class ForumEngine {
 				target.closest('.thread'));
 			
 			switch (target.dataset.buttonAction) {
-			case "lock":
-				thread.lock();
+			case 'lock':
+				thread.locked = !thread.locked;
 				break;
-			case "hide":
-				thread.hide();
+			case 'hide':
+				thread.hidden = !thread.hidden;
 				break;
-			case "pin":
-				thread.pin();
+			case 'pin':
+				thread.pinned = !thread.pinned;
 				break;
 			}
 		}

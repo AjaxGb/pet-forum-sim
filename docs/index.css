@@ -58,9 +58,23 @@ body {
 }
 
 .thread-bars {
+	position: relative;
 	display: grid;
 	grid-gap: 10px;
 	align-content: start;
+}
+
+.thread.locked .thread-bars::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 1px;
+	height: 65px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url("img/lock.svg");
 }
 
 .thread-bar-container {
