@@ -114,8 +114,9 @@ export default class ForumThread {
 	}
 	
 	calculateHeat() {
-		// TODO
-		return 0;
+		const currTick = this._forum.currentTick;
+		const age = currTick - this.createdTick;
+		return (this.postCount - 1) / (age + 2)**1.5;
 	}
 	
 	set locked(val) {
@@ -172,6 +173,8 @@ export default class ForumThread {
 			this.elPinAction.innerText = 'Pin';
 			if (changed) this._forum.sound('unpin');
 		}
+		
+		this._forum.updateThreadPositions();
 	}
 	
 	get pinned() {

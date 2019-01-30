@@ -197,7 +197,7 @@ export default class ForumEngine {
 			if (threadIndex < 0)
 				threadIndex = 0;
 			
-			while (threadIndex >= 0)
+			while (threadIndex >= 0 && threadIndex < visibleThreads.length)
 			{
 				let lookThread = visibleThreads[threadIndex];
 				
@@ -285,9 +285,11 @@ export default class ForumEngine {
 			this._tickEvents.shift();
 		}
 		
-		this.currentTick++;
+		if (this.currentTick % 20 === 0) {
+			this.updateThreadPositions();
+		}
 		
-		this.updateThreadPositions();
+		this.currentTick++;
 	}
 	
 	determineEnding(forcedEnding) {
@@ -367,22 +369,54 @@ export default class ForumEngine {
 			this, this._threadTemplate,
 			title, author, leaning, flame, options);
 		
+		thread.index = Infinity;
+		
 		this._threads.push(thread);
 		this._threadContainer.append(thread.elRoot);
+		this.updateThreadPositions();
 		
 		return thread;
 	}
 	
 	static compareThreads(a, b) {
+		if (a.pinned && b.pinned) {
+			return a.index - b.index;
+		} else if (a.pinned) {
+			return -1;
+		} else if (b.pinned) {
+			return 1;
+		}
+		
 		const heatA = a.calculateHeat();
 		const heatB = b.calculateHeat();
-		// TODO: if heats are equal, use previous index
-		return heatA - heatB;
+		const heatDiff = heatA - heatB;
+		
+		if (Math.abs(heatDiff) < 0.001) {
+			return a.index - b.index;
+		}
+		
+		return heatDiff;
 	}
 	
 	updateThreadPositions() {
 		this._threads.sort(ForumEngine.compareThreads);
-		// TODO: drop old threads, update thread positions, etc.
+		
+		while (this._threads.length > this.maxThreads) {
+			const remove = this._threads.pop();
+			this._threadContainer.removeChild(remove.elRoot);
+		}
+		
+		let previousRoot = null;
+		for (let i = this._threads.length - 1; i >= 0; i--) {
+			const thread = this._threads[i];
+			thread.index = i;
+			
+			this._threadContainer.insertBefore(
+				thread.elRoot,
+				previousRoot);
+			
+			previousRoot = thread.elRoot;
+		}
 	}
 	
 	*iterThreads() {

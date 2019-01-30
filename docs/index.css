@@ -19,6 +19,7 @@ body {
 	display: grid;
 	width: 100%;
 	max-width: 1000px;
+	background: black;
 }
 
 #threads-container > .thread,
@@ -55,6 +56,10 @@ body {
 .thread-header > *:last-child,
 .thread > *:last-child {
 	border-right: 1px solid #D7D8DA;
+}
+
+.thread.hidden {
+	opacity: 0.7;
 }
 
 .thread-bars {
@@ -156,9 +161,16 @@ body {
 	background-image: url("img/top-hat.svg");
 }
 
-.thread h1 {
+.thread .thread-title {
 	margin: 0;
 	margin-bottom: 5px;
+	line-height: 25px;
+	font-size: 20px;
+}
+
+.thread.pinned .thread-title::before {
+	content: "📌";
+	margin-right: 5px;
 }
 
 .thread-actions {
