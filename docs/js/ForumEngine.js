@@ -389,7 +389,7 @@ export default class ForumEngine {
 		
 		const heatA = a.calculateHeat();
 		const heatB = b.calculateHeat();
-		const heatDiff = heatA - heatB;
+		const heatDiff = heatB - heatA;
 		
 		if (Math.abs(heatDiff) < 0.001) {
 			return a.index - b.index;
