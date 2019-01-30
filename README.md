@@ -1,5 +1,7 @@
 # Pet Forum Simulator
 
+Play online: https://www.soltoder.com/pet-forum-sim/
+
 Moderate between two opposing schools of pet owners while trying to keep flame low.
 
 RPI Experimental Game Design, Spring 2019 First Project
