@@ -116,7 +116,7 @@ export default class ForumEngine {
 	}
 	
 	tick() {
-		if (this.currentTick % 25 == 0)
+		if (this.currentTick % 150 == 0)
 		{
 			//calculate forum stats to determine users to show up
 			//for now, just pull from potentialUsers randomly
@@ -136,13 +136,13 @@ export default class ForumEngine {
 				this.potentialUsers.splice(n, 1);
 			}
 			
-			if (this.currentTick % 50 == 0)
+			if (this.currentTick % 150 == 0)
 			{
 				let newAuthor = randomChoice(this._users);
 				this.createThread(newAuthor, newAuthor.leaning, newAuthor.jerkiness + (this.flameMod / 5));
 			}
 			
-			if (this.currentTick % 100 == 0)
+			if (this.currentTick % 300 == 0)
 			{
 				for (let i = 0;i < this._threads.length;i++)
 				{
@@ -154,20 +154,22 @@ export default class ForumEngine {
 		
 		let removeUser = -1;
 		
-		for (let i = this.currentTick % 5;i < this._users.length;i = i + 5)
+		for (let i = this.currentTick % 15;i < this._users.length;i = i + 5)
 		{
 			//picks newer posts over older ones
 			//for now, this is according to how far down the page the post is
 			let currentUser = this._users[i];
 			
+			const visibleThreads = this._threads.filter(t => !t.hidden);
+			
 			let r = Math.floor(Math.random() * 3);
-			let threadIndex = (this._threads.length - 1) - r;
+			let threadIndex = (visibleThreads.length - 1) - r;
 			if (threadIndex < 0)
 				threadIndex = 0;
 			
 			while (threadIndex >= 0)
 			{
-				let lookThread = this._threads[threadIndex];
+				let lookThread = visibleThreads[threadIndex];
 				
 				if (lookThread.flameAmount < (currentUser.jerkiness + 1) / 2)
 				{
@@ -175,7 +177,7 @@ export default class ForumEngine {
 					if (currentUser.leaning + lookThread.elegantAmount <  lenience || currentUser.leaning - lookThread.radAmount <  lenience
 						|| lookThread.elegantAmount + lookThread.radAmount < lenience)
 					{
-						let temp = this._threads[threadIndex];
+						let temp = visibleThreads[threadIndex];
 						if (temp.locked)
 						{
 							if (lookThread.flameAmount * 2 > (currentUser.jerkiness + 1) / 2)
@@ -196,11 +198,11 @@ export default class ForumEngine {
 			
 			if (threadIndex < 0)
 			{
-				if (Math.random < 0.9)
+				if (Math.random < 0.975)
 				{
-					if (this._threads.length < 3)
+					if (visibleThreads.length < 3)
 					{
-						let temp = randomChoice(this._threads);
+						let temp = randomChoice(visibleThreads);
 						if (temp.locked)
 						{
 							removeUser = i;
@@ -212,7 +214,7 @@ export default class ForumEngine {
 					}
 					else
 					{
-						let temp = this._threads[Math.floor(Math.random() * 3)];
+						let temp = visibleThreads[Math.floor(Math.random() * 3)];
 						if (temp.locked)
 						{
 							removeUser = i;
@@ -234,8 +236,10 @@ export default class ForumEngine {
 			this._users.splice(removeUser, 1);
 		}
 		
-		if (this.currentTick > 500)
+		if (this.currentTick > 2400)
 		{
+			
+			
 			this.stopSim();
 		}
 		
@@ -255,9 +259,17 @@ export default class ForumEngine {
 	}
 	
 	_pickMatchingTitle(author, leaning, flame) {
-		// TODO: Actually pick an appropriate title
-		// TODO: Prevent the same thread from showing up too often
-		return randomChoice(this.threadTitles).title;
+		let rant = Math.floor(Math.random() * this.threadTitles.length);
+		let len = 0.2;
+		
+		while (Math.abs(this.threadTitles[rant].leaning - author.leaning) > len && Math.abs(this.threadTitles[rant].aggression - flame) > len)
+		{
+			len += 0.01;
+			rant = Math.floor(Math.random() * this.threadTitles.length);
+		}
+		let r = this.threadTitles[rant].title;
+		this.threadTitles.splice(rant, 1);
+		return r;
 	}
 	
 	createThread(author, leaning, flame,
