@@ -410,9 +410,11 @@ export default class ForumEngine {
 			const thread = this._threads[i];
 			thread.index = i;
 			
-			this._threadContainer.insertBefore(
-				thread.elRoot,
-				previousRoot);
+			if (thread.elRoot.nextElementSibling !== previousRoot) {
+				this._threadContainer.insertBefore(
+					thread.elRoot,
+					previousRoot);
+			}
 			
 			previousRoot = thread.elRoot;
 		}
