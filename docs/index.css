@@ -191,3 +191,44 @@ body {
 .thread-action:active {
 	color: red;
 }
+
+#ending-overlay {
+	display: none;
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.ending-display {
+	display: none;
+	height: 100%;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.ending-display > * {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.game-over #ending-overlay,
+.flame-ending #flame-ending-display,
+.neutral-ending #neutral-ending-display,
+.radical-ending #radical-ending-display,
+.traditional-ending #traditional-ending-display {
+	display: flex;
+}
+
+#flame-ending-display {
+	color: #FF0000;
+	font-size: 60px;
+	font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+	text-shadow: black 4px 6px;
+	background: bottom repeat-x url("img/flames.gif");
+	padding-bottom: 80px;
+}

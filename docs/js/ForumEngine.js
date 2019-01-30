@@ -290,33 +290,59 @@ export default class ForumEngine {
 		this.updateThreadPositions();
 	}
 	
-	determineEnding() {
+	determineEnding(forcedEnding) {
 		this.stopSim();
 		
-		if (this.flameMod > 0.84)
+		document.documentElement.focus();
+		document.body.classList.add('game-over');
+		this.sound('ending');
+		
+		// TODO: Prevent tabbing to controls after gameover
+		
+		let flame = this.flameMod;
+		let lean = 0;
+		for (let i = 0; i < this._users.length; i++) {
+			lean += this._users[i].leaning;
+		}
+		lean = lean / this._users.length;
+		
+		if (forcedEnding !== undefined) {
+			flame = -Infinity;
+			
+			switch (forcedEnding) {
+			case 'flame':
+				flame = Infinity;
+				break;
+			case 'traditional':
+				lean = Infinity;
+				break;
+			case 'radical':
+				lean = -Infinity;
+				break;
+			case 'neutral':
+				lean = 0;
+				break;
+			default:
+				throw new Error(`Invalid forcedEnding: "${forcedEnding}"`);
+			}
+		}
+		
+		if (flame > 0.84)
 		{
-			console.log("put up flame png");
+			document.body.classList.add('flame-ending');
+			this.sound('flameloop');
+		}
+		else if (lean > 0.1)
+		{
+			document.body.classList.add('traditional-ending');
+		}
+		else if (lean < -0.1)
+		{
+			document.body.classList.add('radical-ending');
 		}
 		else
 		{
-			let lean = 0;
-			for(let i = 0;i < this._users.length;i++)
-			{
-				lean += this._users[i].leaning;
-			}
-			lean = lean / this._users.length;
-			if (lean > 0.1)
-			{
-				console.log("Traditional ending");
-			}
-			else if (lean < -0.1)
-			{
-				console.log("Cool ending");
-			}
-			else
-			{
-				console.log("BEST ENDING OBJECTIVELY FIGHT ME");
-			}
+			document.body.classList.add('neutral-ending');
 		}
 	}
 	
