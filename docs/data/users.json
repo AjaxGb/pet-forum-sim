@@ -332,6 +332,114 @@
 			"leaning" : -1,
 			"aggression" : 1,
 			"partisanship" : -0.3
+		},
+		{
+			"name" : "Charlifer XXIII",
+			"leaning" : 0.8,
+			"aggression" : 0.3,
+			"partisanship" : 1
+		},
+		{
+			"name" : "Thor, God of Thunder",
+			"leaning" : 0.1,
+			"aggression" : 0.3,
+			"partisanship" : 0.8
+		},
+		{
+			"name" : "*-.ShadoWxWolF.-*",
+			"leaning" : -0.5,
+			"aggression" : 0.2,
+			"partisanship" : -0.6
+		},
+		{
+			"name" : "OctopiHaveFeelings",
+			"leaning" : -0.6,
+			"aggression" : -0.4,
+			"partisanship" : 0.1
+		},
+		{
+			"name" : "Wendigo",
+			"leaning" : 0,
+			"aggression" : 1,
+			"partisanship" : -0.7
+		},
+		{
+			"name" : "Chow Chow Chow Chow",
+			"leaning" : -0.5,
+			"aggression" : -0.9,
+			"partisanship" : -0.7
+		},
+		{
+			"name" : "Munchie",
+			"leaning" : -0.9,
+			"aggression" : -1,
+			"partisanship" : 0.1
+		},
+		{
+			"name" : "aSphynxiation",
+			"leaning" : 0.7,
+			"aggression" : 0.6,
+			"partisanship" : 0.5
+		},
+		{
+			"name" : "BIRDMAAAAN",
+			"leaning" : -1,
+			"aggression" : -1,
+			"partisanship" : -0.2
+		},
+		{
+			"name" : "Legs",
+			"leaning" : 0,
+			"aggression" : -0.3,
+			"partisanship" : -0.7
+		},
+		{
+			"name" : "Gemini",
+			"leaning" : -0.3,
+			"aggression" : 0.6,
+			"partisanship" : 0.3
+		},
+		{
+			"name" : "Dognado",
+			"leaning" : -0.4,
+			"aggression" : -1,
+			"partisanship" : -0.7
+		},
+		{
+			"name" : "Mastifful",
+			"leaning" : 1,
+			"aggression" : 0.3,
+			"partisanship" : -0.3
+		},
+		{
+			"name" : "Ole Red Greggerson",
+			"leaning" : 0.7,
+			"aggression" : -0.7,
+			"partisanship" : 0
+		},
+		{
+			"name" : "Sheepshank",
+			"leaning" : 0.8,
+			"aggression" : 0.9,
+			"partisanship" : 0.6
+		},
+		{
+			"name" : "Francis Bacchon",
+			"leaning" : -0.4,
+			"aggression" : 0.3,
+			"partisanship" : 0.2
+		},
+		{
+			"name" : "Wombat",
+			"leaning" : -0.3,
+			"aggression" : -0.7,
+			"partisanship" : 0.6
+		},
+		{
+			"name" : "Salem",
+			"leaning" : 0.2,
+			"aggression" : 0.7,
+			"partisanship" : -0.8
 		}
 	]
 }
