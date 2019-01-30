@@ -440,6 +440,72 @@
 			"leaning" : 0.2,
 			"aggression" : 0.7,
 			"partisanship" : -0.8
+		},
+		{
+			"name" : "COOL SUNGLASSES DOG",
+			"leaning" : -1,
+			"aggression" : -1,
+			"partisanship" : -1
+		},
+		{
+			"name" : "Phlegmingo",
+			"leaning" : -0.3,
+			"aggression" : -0.5,
+			"partisanship" : 0
+		},
+		{
+			"name" : "A",
+			"leaning" : -0.3,
+			"aggression" : 0.1,
+			"partisanship" : 0
+		},
+		{
+			"name" : "RealBirdHours",
+			"leaning" : -0.5,
+			"aggression" : 0.5,
+			"partisanship" : 0.5
+		},
+		{
+			"name" : "IguanaBelieve",
+			"leaning" : 0.9,
+			"aggression" : 0.1,
+			"partisanship" : 0.6
+		},
+		{
+			"name" : "Spawt",
+			"leaning" : -1,
+			"aggression" : 1,
+			"partisanship" : -0.3
+		},
+		{
+			"name" : "xxXXMurderDemonXXxx",
+			"leaning" : 0.5,
+			"aggression" : 0.9,
+			"partisanship" : 0.4
+		},
+		{
+			"name" : "Archchancellor Dogposticus",
+			"leaning" : -0.3,
+			"aggression" : 0.3,
+			"partisanship" : 0.4
+		},
+		{
+			"name" : "Dogposting Acolyte",
+			"leaning" : -0.3,
+			"aggression" : 0.4,
+			"partisanship" : -0.2
+		},
+		{
+			"name" : "Outlaw Dogposts Inc.",
+			"leaning" : -0.5,
+			"aggression" : 0.5,
+			"partisanship" : 0.3
+		},
+		{
+			"name" : "Doug's Dogposting",
+			"leaning" : -0.3,
+			"aggression" : 0,
+			"partisanship" : 0
 		}
 	]
 }
