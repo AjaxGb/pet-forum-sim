@@ -251,13 +251,6 @@ export default class ForumEngine {
 			this._users.splice(removeUser, 1);
 		}
 		
-		if (this.currentTick > 2400)
-		{
-			
-			
-			this.stopSim();
-		}
-		
 		// Users can enter or leave threads
 		// Users can make "posts" in threads
 		// Users can make threads
@@ -271,6 +264,39 @@ export default class ForumEngine {
 		this.currentTick++;
 		
 		this.updateThreadPositions();
+	}
+	
+	determineEnding()
+	{
+		if (this.flameMod > 0.8)
+		{
+			console.log("put up flame png");
+		}
+		else if (this._users.length < 5)
+		{
+			console.log("put up cricket png???");
+		}
+		else
+		{
+			let lean = 0;
+			for(let i = 0;i < this._users.length;i++)
+			{
+				lean += this._users[i].leaning;
+			}
+			lean = lean / this._users[i].length;
+			if (lean > 0.4)
+			{
+				console.log("Traditional ending");
+			}
+			else if (lean < -0.4)
+			{
+				console.log("Cool ending");
+			}
+			else
+			{
+				console.log("BEST ENDING OBJECTIVELY FIGHT ME");
+			}
+		}
 	}
 	
 	_pickMatchingTitle(author, leaning, flame) {
