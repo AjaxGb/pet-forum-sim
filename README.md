@@ -4,6 +4,6 @@ Moderate between two opposing schools of pet owners while trying to keep flame l
 
 RPI Experimental Game Design, Spring 2019 First Project
 
-* Sol Toder
-* Axel Stewart
-* Owen Elliff
+* Sol Toder - Engine programming. Interface design and programming.
+* Axel Stewart - Sound design and creation. Writing (some of the user names). Research.
+* Owen Elliff - Lead writer (thread titles, some of the user names). User AI programming.
