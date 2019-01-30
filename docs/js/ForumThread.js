@@ -119,7 +119,8 @@ export default class ForumThread {
 	}
 	
 	set locked(val) {
-		const changed = !this._locked !== !val;
+		val = !!val;
+		const changed = this._locked != null && this._locked !== val;
 		
 		this._locked = val;
 		if (val) {
@@ -138,7 +139,8 @@ export default class ForumThread {
 	}
 	
 	set hidden(val) {
-		const changed = !this._hidden !== !val;
+		val = !!val;
+		const changed = this._hidden != null && this._hidden !== val;
 		
 		this._hidden = val;
 		if (val) {
@@ -157,7 +159,8 @@ export default class ForumThread {
 	}
 	
 	set pinned(val) {
-		const changed = !this._pinned !== !val;
+		val = !!val;
+		const changed = this._pinned != null && this._pinned !== val;
 		
 		this._pinned = val;
 		if (val) {
