@@ -72,7 +72,14 @@ export default class ForumEngine {
 	
 	openSounds(sounds, prefix='', suffix='') {
 		for (let [name, url] of Object.entries(sounds)) {
-			this.sounds[name] = new Audio(prefix + url + suffix);
+			let loop = false;
+			if (typeof url === 'object') {
+				loop = !!url.loop;
+				url = url.url;
+			}
+			const audio = new Audio(prefix + url + suffix);
+			audio.loop = loop;
+			this.sounds[name] = audio;
 		}
 	}
 	
@@ -263,9 +270,6 @@ export default class ForumEngine {
 			this._users.splice(removeUser, 1);
 		}
 		
-		if (this.currentTick > 2400)
-			this.determineEnding();
-		
 		// Users can enter or leave threads
 		// Users can make "posts" in threads
 		// Users can make threads
@@ -276,18 +280,19 @@ export default class ForumEngine {
 		
 		//for all threads: update values
 		
-		this.currentTick++;
-		
-		this.updateThreadPositions();
-		
 		while (this._tickEvents.length && this.currentTick >= this._tickEvents[0].tick) {
 			this._tickEvents[0].callback.call(null, this);
 			this._tickEvents.shift();
 		}
+		
+		this.currentTick++;
+		
+		this.updateThreadPositions();
 	}
 	
-	determineEnding()
-	{
+	determineEnding() {
+		this.stopSim();
+		
 		if (this.flameMod > 0.84)
 		{
 			console.log("put up flame png");
